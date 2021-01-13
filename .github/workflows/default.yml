@@ -28,7 +28,7 @@ jobs:
       - name: Quality Clouds Scan
         # You may pin to the exact commit or the version.
         # uses: qualityclouds/action-full-scan@b6139e614387852d33c82662289697c90b1c1fab
-        uses: qualityclouds/action-full-scan@0.0.6
+        uses: qualityclouds/action-full-scan@0.0.7
         with:
           # You need to provide a valid API key to connect the Quality Clouds ruleset against which your code will be checked
           token: ${{ secrets.QC_TOKEN }}
