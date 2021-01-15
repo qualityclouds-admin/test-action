@@ -32,12 +32,10 @@ jobs:
         with:
           # You need to provide a valid API key to connect the Quality Clouds ruleset against which your code will be checked
           token: ${{ secrets.QC_TOKEN }}
-
+      - name: Notify last Scan
       - run: |
-          pwd
-          # date > .last_scan
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "generated"
+          git commit -m "Notified last Scan"
           git push
