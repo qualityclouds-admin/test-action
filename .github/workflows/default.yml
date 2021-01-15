@@ -35,7 +35,7 @@ jobs:
 
       - run: |
           pwd
-          date > .last_scan
+          # date > .last_scan
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
