@@ -24,6 +24,10 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      
+      - name: Display the path
+        run: git diff-tree --no-commit-id --name-only -r ${{ github.sha }}
+        shell: bash
           
       - name: Quality Clouds Scan
         # You may pin to the exact commit or the version.
