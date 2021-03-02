@@ -7,6 +7,7 @@ public with sharing class BotController {
     class HandlerMapping {
         public String handlerClassName;
         public Pattern utterancePattern;
+        public static final String test-action="test";
         /**
          * @description Hello World
          */
