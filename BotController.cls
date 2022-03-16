@@ -33,7 +33,7 @@ public with sharing class BotController {
         }
     }
 /**
- * @description Hello World
+ * @description Hello World 2
  */
     @AuraEnabled
     public static BotResponse submit(String utterance, Map<String, String> session, String fileName, String fileContent) {
