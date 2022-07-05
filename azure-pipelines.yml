@@ -18,8 +18,11 @@ steps:
   inputs:
     dockerVersion: '17.09.0-ce'
 
-- script: echo Hello, world!
+- script: echo "Hello, $QC_API_KEY"
   displayName: 'Run a one-line script'
+  env:
+    BUILD_DIRECTORY: $(Agent.BuildDirectory)
+    QC_API_KEY: $(apiKey)
 
 - script: docker run --user root --network=host -v $BUILD_DIRECTORY:/src/:rw  -e QC_API_KEY=$QC_API_KEY -e diff_mode=1 -t qualityclouds/pipeline-salesforce sf-scan
   displayName: 'Scan'
