@@ -9,8 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
+variables:
+- name: apiKey
+  value: initialValue 
 
+steps:
 - task: DockerInstaller@0
   inputs:
     dockerVersion: '17.09.0-ce'
@@ -18,5 +21,8 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: docker run --user root --network=host -e QC_API_KEY=changeme -e diff_mode=1 -t qualityclouds/pipeline-salesforce sf-scan
+- script: docker run --user root --network=host -v $BUILD_DIRECTORY:/src/:rw  -e QC_API_KEY=changeme -e diff_mode=1 -t qualityclouds/pipeline-salesforce sf-scan
   displayName: 'Scan'
+  env:
+    BUILD_DIRECTORY: $(Agent.BuildDirectory)
+    QC_API_KEY: $(apiKey)
