@@ -17,3 +17,6 @@ steps:
 
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+
+- script: docker run --user root --network=host -e QC_API_KEY=changeme -e diff_mode=1 -t qualityclouds/pipeline-salesforce sf-scan
+  displayName: 'Scan'
