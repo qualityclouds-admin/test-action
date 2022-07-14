@@ -11,7 +11,6 @@ pool:
 
 variables:
 - name: apiKey
-  value: initialValue 
 
 steps:
 - task: DockerInstaller@0
