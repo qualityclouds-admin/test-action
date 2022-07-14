@@ -9,8 +9,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-- name: apiKey
 
 steps:
 - task: DockerInstaller@0
