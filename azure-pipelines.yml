@@ -21,7 +21,7 @@ steps:
     BUILD_DIRECTORY: $(Agent.BuildDirectory)
     QC_API_KEY: $(apiKey)
 
-- script: docker run --user root --network=host -v $BUILD_DIRECTORY:/src/:rw  -e QC_API_KEY=$QC_API_KEY -e diff_mode=1 -e BRANCH=test-pr -e REPO_URL=https://github.com/qualityclouds-admin/test-action.git -t qualityclouds/pipeline-salesforce sf-scan
+- script: docker run --user root --network=host -v $BUILD_DIRECTORY:/src/:rw  -e QC_API_KEY=$QC_API_KEY -e API_URL=https://services-development.qualityclouds.com -e REPO_URL=https://github.com/qualityclouds-admin/test-action.git -e diff_mode=1 -e MODE=cloud -e URL_ID= -e BRANCH=test-pr -e OPERATION=PUSH -t qualityclouds/pipeline-salesforce sf-scan
   displayName: 'Scan'
   env:
     BUILD_DIRECTORY: $(Agent.BuildDirectory)
