@@ -19,13 +19,13 @@ steps:
   displayName: 'Run a one-line script'
   env:
     BUILD_DIRECTORY: $(Agent.BuildDirectory)
-    QC_API_KEY: $(APIKEY)
+    QC_API_KEY: $(apiKey)
 
 - script: docker run --user root --network=host -v $BUILD_DIRECTORY:/src/:rw  -e QC_API_KEY=$QC_API_KEY -e API_URL=https://services.qualityclouds.com -e REPO_URL=https://github.com/qualityclouds-admin/test-action.git -e diff_mode=1 -e MODE=cloud -e URL_ID= -e BRANCH=test-pr -e OPERATION=PUSH -t qualityclouds/pipeline-salesforce sf-scan
   displayName: 'Scan'
   env:
     BUILD_DIRECTORY: $(Agent.BuildDirectory)
-    QC_API_KEY: $(APIKEY)
+    QC_API_KEY: $(apiKey)
     QC_API_KEY2: eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjlhNzQ4OTc2OTYxZjBiYmMwOGE2ODIzYjAzZWE0OWJhZDdlY2RiMTdjOTI1Nzc0ZmEwMzVkZTI3MGNjMTZhNzNmZDc3NWViZjk0OTBjNGU3In0.eyJhdWQiOiIyIiwianRpIjoiOWE3NDg5NzY5NjFmMGJiYzA4YTY4MjNiMDNlYTQ5YmFkN2VjZGIxN2M5MjU3NzRmYTAzNWRlMjcwY2MxNmE3M2ZkNzc1ZWJmOTQ5MGM0ZTciLCJpYXQiOjE2NTcxOTQ2NTEsIm5iZiI6MTY1NzE5NDY1MSwiZXhwIjoxNjg4NzMwNjUxLCJzdWIiOiIzNjIiLCJzY29wZXMiOlsibGl2ZS1jaGVjayJdfQ.H0lcZl4pb6wYi6OgH76q04O70FMwWiN0d7LMfjUK3lhAntKnDvB_SJbPFl7OfPZfiXCLtdpJEmudejX7Yc8WiSQUQ73s6Eujj2JbQ36k8W5ySBaPnHYmOjUZ0mf7QG74HhJ7bC4-BhZxhyYi-QGy2fJReX3y3gV18k8KvXQ3sqrz9Cozb_uqWwSdfK8CrNJYhFxGcb4BPI3JrjX_AR9hOOdWipFTBdqfltkQyOSvr07g-IsovHCXv8PKLe0n6Q2SI3MWXQfuOYZfQzKArQ8GHU1pptozHVmZpX2OYcU-JxzftwFk2IY7rfOwbLKN0XFfORP_RbZJuN0ms30_8Dc4WlSaGUNN0anJzUxaKjlB-qkMVZoJAFDnIXO934lgrVNqxkJi9CmXF2uOOXSf-X7ZQz7DQs_pJetdbIbo5XTdFVJ2SdW90V_jwZ7Qsf7OI5rfw_LXxqlKnfpFfxt9_MNXFYM1J_PtU0Nn1PZTOEbgPD2RJZrCgZM1lToGME8Nci9s6zctOJo7gUqjnfQq3zKw3eslUKyY-uIDBy9TjmpNa_z4Uyr6yeEwWoXVHxpDe8KE1iaPlkc1XiIZCJW5zOoH02I_EymkC0BHestcoBRtQbOG3N_Dj70Zpj1ftlfba0F9ybkt7XLrJj1emfsAsiSZP8M6ZYDeSzWiptigTs6NJfs
 
 
