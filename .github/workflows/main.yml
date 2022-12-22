@@ -31,5 +31,5 @@ jobs:
           mode: cloud
           version: testing
           token: ${{ secrets.QC_TOKEN_DEV }}
-          api_url: "https://services-development.qualityclouds.com"
-        #  url_id: 315
+          api_url: "https://api-development.qualityclouds.com"
+          url_id: 315
